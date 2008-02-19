@@ -1,0 +1,63 @@
+<html>
+
+<body>
+
+<span jwcid="$content$">
+<span jwcid="eException" class="exception-block">
+    <a jwcid="tLink@Any" href="#" class="toggle exception-link">[&nbsp;+/-&nbsp;] Exception:
+	   <span jwcid="@Insert" value="ognl:exception.message">A message describing the exception.</span></a>
+	<table jwcid="@Any" id="ognl:components.tLink.clientId + 'Data'" class="exception-display toggleContent">
+		<tr class="exception-name">
+			<td colspan="2"><span jwcid="insertClass">some.exception.Class</span></td>
+		</tr>
+
+		<tr jwcid="eProperty">
+			<th><span jwcid="insertPropertyName">Property Name</span>:</th>
+			<td><span jwcid="insertPropertyValue">Property Value</span></td>
+		</tr>
+
+		<tr jwcid="$remove$" class="odd">
+			<th>Property Name 2:</th>
+			<td>Property Value 2</td>
+		</tr>
+
+		<tr jwcid="$remove$" class="even">
+			<th>Property Name 3:</th>
+			<td>Property Value 3</td>
+		</tr>
+
+		<tr jwcid="$remove$" class="odd">
+			<th>Property Name 4:</th>
+			<td>Property Value 4</td>
+		</tr>
+
+		<tr jwcid="ifNotLast"> <td colspan="2"> &nbsp; </td> </tr>
+
+<span jwcid="ifLast" renderTag="false">
+		<tr class="stack-trace-label">
+			<td colspan="2">Stack Trace:</td>
+		</tr>
+
+		<tr class="stack-trace">
+			<td colspan="2">
+				<ul>
+					<li jwcid="eStack">
+                        <span jwcid="@If" condition="ognl:inClickable" renderTag="false">
+                            <a jwcid="@Any" href="#" onclick="ognl:activationJs+';return false;'"><span jwcid="@Insert" value="ognl:trace"/></a>
+                        </span>
+                        <span jwcid="@Else" renderTag="false">
+                            <span jwcid="@Insert" value="ognl:trace"/>
+                        </span>
+                    </li>
+				</ul>
+			</td>
+		</tr>
+</span> <!-- ifLast -->
+	</table>
+
+</span> <!-- e-exception -->
+
+</span> <!-- $content$ -->
+
+</body>
+</html>

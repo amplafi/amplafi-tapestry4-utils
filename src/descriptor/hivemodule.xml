@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+   Copyright 2008 Amplafi
+-->
+
+<module id="amplafi.stacktraces" version="1.0.0">
+
+    <configuration-point id="LinkablePackages">
+
+        <schema>
+            <element name="package">
+                <attribute name="name" required="true" unique="true"/>
+
+                <rules>
+                    <push-attribute attribute="name"/>
+                    <invoke-parent method="addElement"/>
+                </rules>
+            </element>
+        </schema>
+    </configuration-point>
+
+</module>

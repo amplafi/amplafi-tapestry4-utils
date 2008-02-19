@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright 2008 Amplafi
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<!DOCTYPE page-specification PUBLIC 
+  "-//Apache Software Foundation//Tapestry Specification 4.0//EN" 
+  "http://tapestry.apache.org/dtd/Tapestry_4_0.dtd">
+	
+<page-specification class="org.apache.tapestry.pages.Exception">
+  
+   <property name="pagePackages" initial-value="literal:org.apache.tapestry.page-class-packages"/> 
+   <property name="componentPackages" initial-value="literal:org.apache.tapestry.component-class-packages"/> 
+    
+  <component id="restart" type="ServiceLink">
+    <binding name="service" value="ognl:@org.apache.tapestry.Tapestry@RESTART_SERVICE"/>
+  </component>
+
+  <asset name="activation" path="classpath:/org/amplafi/stacktraces/activation.js" />
+  <asset name="stylesheet" path="classpath:/org/apache/tapestry/pages/Exception.css" />
+  <asset name="dynamicStylesheet" path="classpath:/org/apache/tapestry/pages/Exception-Dynamic.css" />
+  
+</page-specification>

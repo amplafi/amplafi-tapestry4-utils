@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright 2008 Amplafi
+-->
+
+<!DOCTYPE component-specification PUBLIC
+  "-//Apache Software Foundation//Tapestry Specification 4.0//EN"
+  "http://tapestry.apache.org/dtd/Tapestry_4_0.dtd">
+
+<component-specification class="org.amplafi.stacktraces.ExceptionDisplay"
+	allow-body="no"
+	allow-informal-parameters="no">
+
+  <description>
+  Used to present a detail exception description.
+  </description>
+
+  <parameter name="exceptions" required="yes">
+    <description>
+    An array of ExceptionDescription objects.
+    </description>
+  </parameter>
+
+  <parameter name="packages" required="no">
+    <description>
+    A list of Strings that contain package names that should be highlighted
+    when printing out the stack traces.
+    </description>
+  </parameter>
+
+  <bean name="evenOdd" class="org.apache.tapestry.bean.EvenOdd"/>
+
+  <!-- Store the current ExceptionProperty -->
+
+  <property name="property"/>
+
+  <!-- Store the current stack trace line -->
+
+  <property name="trace"/>
+
+  <inject property="adapterFactory" object="service:tapestry.describe.RenderableAdapterFactory"/>
+
+  <component id="eException" type="For">
+    <binding name="source" value="exceptions"/>
+    <binding name="value" value="exception"/>
+    <binding name="index" value="index"/>
+  </component>
+
+  <component id="insertClass" type="Insert">
+    <binding name="value" value="exception.exceptionClassName"/>
+  </component>
+
+  <component id="eProperty" type="For">
+  	<binding name="class" value="beans.evenOdd.next"/>
+    <binding name="source" value="exception.properties"/>
+    <binding name="value" value="property"/>
+  </component>
+
+  <component id="insertPropertyName" type="Insert">
+    <binding name="value" value="property.name"/>
+  </component>
+
+  <component id="insertPropertyValue" type="Delegator">
+    <binding name="delegate" value="adapterFactory.getRenderableAdaptor(property.value)"/>
+  </component>
+
+  <component id="ifLast" type="If">
+    <binding name="condition" value="last"/>
+  </component>
+
+  <component id="ifNotLast" type="If">
+    <binding name="condition" value="! last"/>
+  </component>
+
+  <component id="eStack" type="For">
+    <binding name="element" value="literal:li"/>
+    <binding name="source" value="exception.stackTrace"/>
+    <binding name="value" value="trace"/>
+    <binding name="class" value="stackClass"/>
+  </component>
+
+  <inject property="linkablePackages" object="configuration:amplafi.stacktraces.LinkablePackages"/>
+
+</component-specification>

@@ -1,0 +1,13 @@
+<!DOCTYPE script PUBLIC
+	"-//Apache Software Foundation//Tapestry Script Specification 3.0//EN"
+	"http://tapestry.apache.org/dtd/Script_3_0.dtd">
+
+<script>
+    <include-script resource-path="activation.js"/>
+    <body>
+        <unique>
+            alert('test');
+        </unique>
+    </body>
+
+</script>
