@@ -16,9 +16,13 @@
 <span jwcid="$content$">
 <html jwcid="@Shell" title="Exception" stylesheet="asset:stylesheet" disableCaching="true" doctype="ognl:''">
 <body>
-<script jwcid="@Any" type="text/javascript" src="asset:activation"> </script>
 <span jwcid="@If" condition="ognl:dynamic" renderTag="false">
     <style jwcid="@Style" href="asset:dynamicStylesheet"/>
+    <script type="text/javascript">
+        tapestry.loadScriptFromUrl('<span jwcid="@Insert" value="ognl:assets.activation.buildURL"/>');
+    </script>
+</span><span jwcid="@Else" renderTag="false">
+    <script jwcid="@Any" type="text/javascript" src="asset:activation"> </script>
 </span>
 
 <span class="exception-top">
