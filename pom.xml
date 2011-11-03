@@ -11,6 +11,7 @@
     <inceptionYear>2008</inceptionYear>
     <properties>
         <wagon-build>1.0-beta-7</wagon-build>
+        <testng-build>6.2.1</testng-build>
     </properties>
     <dependencies>
         <dependency>
@@ -21,8 +22,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.2</version>
-            <classifier>jdk15</classifier>
+            <version>${testng-build}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
