@@ -28,7 +28,7 @@
     <binding name="service" value="ognl:@org.apache.tapestry.Tapestry@RESTART_SERVICE"/>
   </component>
 
-  <asset name="activation" path="classpath:/org/amplafi/stacktraces/activation.js" />
+  <asset name="activation" path="classpath:/org/amplafi/tapestry4/stacktraces/activation.js" />
   <asset name="stylesheet" path="classpath:/org/apache/tapestry/pages/Exception.css" />
   <asset name="dynamicStylesheet" path="classpath:/org/apache/tapestry/pages/Exception-Dynamic.css" />
   

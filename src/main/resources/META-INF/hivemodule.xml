@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
 <module id="amplafi.tapestry4.utils" version="0.0.2">
-    <sub-module descriptor="amplafi.stacktraces.xml"/>
+    <sub-module descriptor="amplafi.tapestry4.stacktraces.xml"/>
+    <sub-module descriptor="amplafi.tapestry4.asset.xml"/>
 </module>

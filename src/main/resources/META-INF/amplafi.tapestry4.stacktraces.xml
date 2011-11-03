@@ -3,7 +3,7 @@
    Copyright 2008 Amplafi
 -->
 
-<module id="amplafi.stacktraces" version="0.0.2">
+<module id="amplafi.tapestry4.stacktraces" version="0.0.2">
 
     <configuration-point id="LinkablePackages">
 
@@ -18,5 +18,13 @@
             </element>
         </schema>
     </configuration-point>
+    <!-- Example usage:
+    
+    <contribution configuration-id="amplafi.tapestry4.stacktraces.LinkablePackages">
+        Packages to make linkable (to open in IDE) in debug mode.
+        <package name="com.amplafi"/>
+    </contribution>
+    
+     -->
 
 </module>

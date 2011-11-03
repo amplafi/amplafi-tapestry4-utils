@@ -1,0 +1,22 @@
+<module id="amplafi.tapestry4.asset" version="0.40.0">
+
+	<implementation service-id="tapestry.asset.ContextAssetFactory">
+        <invoke-factory>
+            <construct class="org.amplafi.tapestry4.asset.AmplafiContextAssetFactory">
+                <set-object property="contextPath" value="infrastructure:contextPath"/>
+                <set-service property="webContext" service-id="tapestry.globals.WebContext"/>
+                <set-object property="localizer" value="infrastructure:resourceLocalizer"/>
+                <set-object property="requestCycle" value="infrastructure:requestCycle" />
+            </construct>
+        </invoke-factory>
+    </implementation>
+
+    <implementation service-id="tapestry.asset.ClasspathAssetFactory">
+        <invoke-factory>
+            <construct class="org.amplafi.tapestry4.asset.AmplafiClasspathAssetFactory">
+            	<set-object property="assetService" value="engine-service:asset"/>
+            </construct>
+        </invoke-factory>
+    </implementation>
+    
+</module>
