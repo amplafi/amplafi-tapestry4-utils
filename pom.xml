@@ -1,46 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.amplafi</groupId>
-	<artifactId>amplafi-stacktraces</artifactId>
-    <version>0.0.1</version>
-	
-	<name>Stacktraces</name>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.amplafi</groupId>
+    <artifactId>amplafi-tapestry4-utils</artifactId>
+    <version>0.0.2</version>
+    
+    <name>amplafi-tapestry4-utils</name>
     <inceptionYear>2008</inceptionYear>
-	
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.tapestry</groupId>
-			<artifactId>tapestry-framework</artifactId>
-			<version>[4.1.3,4.2)</version>
-		</dependency>        
+    <properties>
+        <wagon-build>1.0-beta-7</wagon-build>
+    </properties>
+    <dependencies>
         <dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>5.5</version>
-			<classifier>jdk15</classifier>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>		
-	</dependencies>
-	<build>
-		<sourceDirectory>src/java</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src/descriptor/</directory>
-				<includes>
-					<include>**</include>
-				</includes>
-				<targetPath>META-INF</targetPath>
-			</resource>
-			<resource>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-framework</artifactId>
+            <version>4.1.7-SNAPSHOT</version>
+        </dependency>        
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.2</version>
+            <classifier>jdk15</classifier>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>        
+    </dependencies>
+    <build>
+        <sourceDirectory>src/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/descriptor/</directory>
+                <includes>
+                    <include>**</include>
+                </includes>
+                <targetPath>META-INF</targetPath>
+            </resource>
+            <resource>
                 <directory>src/java</directory>
                 <includes>
                     <include>**/*</include>
@@ -49,11 +51,11 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
              </resource>
-		</resources>
-		
-		<testSourceDirectory>src/test</testSourceDirectory>
-		<testResources>
-			<testResource>
+        </resources>
+        
+        <testSourceDirectory>src/test</testSourceDirectory>
+        <testResources>
+            <testResource>
                 <directory>src/test</directory>
                 <includes>
                     <include>**/*</include>
@@ -62,18 +64,17 @@
                     <exclude>**/*.java</exclude>
                 </excludes>
             </testResource>
-    	</testResources>
-    	<plugins>
+        </testResources>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-				<version>2.3</version>
                 <configuration>
                     <altDeploymentRepository>
                         amplafi.public::default::ftp://amplafi.com/httpdocs/repository
                     </altDeploymentRepository>
                 </configuration>
-            </plugin>		
+            </plugin>        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -84,26 +85,20 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>		
-		</plugins>
-		<extensions>
+            </plugin>        
+        </plugins>
+        <extensions>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ssh-external</artifactId>
-                <version>1.0-beta-2</version>
+                <version>${wagon-build}</version>
             </extension>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <artifactId>wagon-ftp</artifactId>
-                <version>1.0-beta-2</version>
+                <version>${wagon-build}</version>
             </extension>
-        </extensions>		
-	</build>
-    <distributionManagement>
-        <repository>
-            <id>wireservice-staging</id>
-            <url>scpexe://amplafi.net/home/upload/repository</url>
-        </repository>
-    </distributionManagement>	
+        </extensions>        
+    </build>
 </project>
 
