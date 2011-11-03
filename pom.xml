@@ -33,17 +33,12 @@
         </dependency>        
     </dependencies>
     <build>
-        <sourceDirectory>src/java</sourceDirectory>
         <resources>
             <resource>
-                <directory>src/descriptor/</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
-                <targetPath>META-INF</targetPath>
+                <directory>src/main/resources</directory>
             </resource>
             <resource>
-                <directory>src/java</directory>
+                <directory>src/main/java</directory>
                 <includes>
                     <include>**/*</include>
                 </includes>
@@ -53,7 +48,6 @@
              </resource>
         </resources>
         
-        <testSourceDirectory>src/test</testSourceDirectory>
         <testResources>
             <testResource>
                 <directory>src/test</directory>
@@ -101,4 +95,3 @@
         </extensions>        
     </build>
 </project>
-

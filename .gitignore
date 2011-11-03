@@ -1,0 +1,11 @@
+.DS_Store
+/.sass-cache
+/bin
+/working
+/target
+/.settings
+/.classpath
+/.project
+/test-output
+/*.log
+/*.log.*
