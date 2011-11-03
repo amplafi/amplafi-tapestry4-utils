@@ -1,0 +1,16 @@
+<module id="amplafi.tapestry4.asset" version="0.40.0">
+
+    <service-point id="RandomMessageBindingFactory" interface="org.apache.tapestry.binding.BindingFactory">
+        Creates bindings to access random variations of a message.
+
+        <invoke-factory>
+            <construct class="org.amplafi.tapestry4.bindings.RandomMessageBindingFactory">
+                <set-object property="valueConverter" value="infrastructure:valueConverter"/>
+            </construct>
+        </invoke-factory>
+
+    </service-point>
+    <contribution configuration-id="tapestry.bindings.BindingFactories">
+        <binding prefix="random" service-id="RandomMessageBindingFactory"/>
+    </contribution>
+</module>
