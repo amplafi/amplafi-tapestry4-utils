@@ -3,7 +3,7 @@
    Copyright 2008 Amplafi
 -->
 
-<module id="amplafi.stacktraces" version="1.0.0">
+<module id="amplafi.stacktraces" version="0.0.2">
 
     <configuration-point id="LinkablePackages">
 
