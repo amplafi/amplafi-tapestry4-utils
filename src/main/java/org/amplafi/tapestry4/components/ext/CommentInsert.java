@@ -1,11 +1,10 @@
 package org.amplafi.tapestry4.components.ext;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry.AbstractComponent;
 import org.apache.tapestry.IRequestCycle;
 import org.apache.tapestry.IMarkupWriter;
 import org.apache.tapestry.annotations.Parameter;
-
-import static com.amplafi.util.Utils.*;
 
 /**
  * Like the Insert component, produces the result as a html comment. Useful to help with debugging without affecting the layout.
@@ -36,19 +35,16 @@ public abstract class CommentInsert extends AbstractComponent {
     @Override
     protected void renderComponent(IMarkupWriter writer, IRequestCycle cycle) {
         String value;
-        if (cycle.isRewinding() || isHidden() || isBlank(value = getValue())) {
-            return;
-        }
+        if (!cycle.isRewinding() && !isHidden() && StringUtils.isNotBlank(value = getValue())) {
+            value = value.replaceAll("<!--", "-");
+            value = value.replaceAll("-->", "-");
+            value = value.replaceAll("--+", "-");
 
-        value = value.replaceAll("<!--", "-");
-        value = value.replaceAll("-->", "-");
-        value = value.replaceAll("--+", "-");
-
-        if ( isRenderedAsComment()) {
-            writer.comment(value);
-        } else {
-            writer.printRaw(value);
+            if ( isRenderedAsComment()) {
+                writer.comment(value);
+            } else {
+                writer.printRaw(value);
+            }
         }
     }
-
 }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.amplafi</groupId>
     <artifactId>amplafi-tapestry4-utils</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.4</version>
     <parent>
         <groupId>org.amplafi</groupId>
         <artifactId>amplafi-opensource-parent</artifactId>
@@ -14,30 +12,37 @@
     </parent>
     <name>amplafi-tapestry4-utils</name>
     <inceptionYear>2008</inceptionYear>
-    <properties>
-        <wagon-build>1.0-beta-7</wagon-build>
-        <testng-build>6.2.1</testng-build>
-    </properties>
     <distributionManagement>
         <repository>
             <id>amplafi.public</id>
             <url>ftp://maven.amplafi.com/</url>
         </repository>
-    </distributionManagement>  
+    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.apache.tapestry</groupId>
             <artifactId>tapestry-framework</artifactId>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>org.apache.tapestry</groupId>
             <artifactId>tapestry-annotations</artifactId>
-        </dependency>  
+        </dependency>
         <dependency>
             <groupId>org.amplafi</groupId>
             <artifactId>amplafi-tapestry4-test</artifactId>
-            <version>1.0.2</version>
+            <version>${amplafi-tapestry4-test-build}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>backport-util-concurrent</groupId>
+            <artifactId>backport-util-concurrent</artifactId>
+            <version>3.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist-build}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -50,7 +55,7 @@
                     <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>        
+        </dependency>
     </dependencies>
     <build>
         <resources>
@@ -65,9 +70,9 @@
                 <excludes>
                     <exclude>**/*.java</exclude>
                 </excludes>
-             </resource>
+            </resource>
         </resources>
-        
+
         <testResources>
             <testResource>
                 <directory>src/test</directory>
@@ -88,7 +93,7 @@
                         amplafi.public::default::ftp://maven.amplafi.com/
                     </altDeploymentRepository>
                 </configuration>
-            </plugin>        
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -99,7 +104,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>        
+            </plugin>
         </plugins>
         <extensions>
             <extension>
@@ -112,6 +117,6 @@
                 <artifactId>wagon-ftp</artifactId>
                 <version>${wagon-build}</version>
             </extension>
-        </extensions>        
+        </extensions>
     </build>
 </project>

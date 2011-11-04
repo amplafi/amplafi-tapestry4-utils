@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-   Copyright 2008 Amplafi
+Put in your <appname>.application file:
+    <library id="stacktraces" specification-path="/org/amplafi/tapestry4/stacktraces/Stacktraces.library"/>
+
+then refer to components with "stacktraces:" prefix
 -->
 
 <!DOCTYPE library-specification PUBLIC

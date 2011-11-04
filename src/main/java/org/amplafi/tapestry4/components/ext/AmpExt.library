@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Put in your <appname>.application file:
+    <library id="ampExt" specification-path="/org/amplafi/tapestry4/components/ext/AmpExt.library"/>
+
+then refer to components with "ampExt:" prefix
+-->
+<!DOCTYPE library-specification PUBLIC
+  "-//Apache Software Foundation//Tapestry Specification 4.0//EN"
+  "http://tapestry.apache.org/dtd/Tapestry_4_0.dtd">
+
+<library-specification>
+    <description>Extension Component Library</description>
+    <meta key="org.apache.tapestry.component-class-packages" value="org.amplafi.tapestry4.components.ext"/>
+
+
+</library-specification>
