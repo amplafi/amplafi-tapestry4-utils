@@ -13,6 +13,12 @@
         <wagon-build>1.0-beta-7</wagon-build>
         <testng-build>6.2.1</testng-build>
     </properties>
+    <distributionManagement>
+        <repository>
+            <id>amplafi.public</id>
+            <url>ftp://maven.amplafi.com/</url>
+        </repository>
+    </distributionManagement>  
     <dependencies>
         <dependency>
             <groupId>org.apache.tapestry</groupId>
@@ -65,7 +71,7 @@
                 <artifactId>maven-deploy-plugin</artifactId>
                 <configuration>
                     <altDeploymentRepository>
-                        amplafi.public::default::ftp://amplafi.com/httpdocs/repository
+                        amplafi.public::default::ftp://maven.amplafi.com/
                     </altDeploymentRepository>
                 </configuration>
             </plugin>        
