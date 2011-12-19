@@ -5,7 +5,7 @@
     </contribution>    
 
     <service-point id="HintEnhancementWorker" interface="org.apache.tapestry.enhance.EnhancementWorker">
-        <invoke-factory service-id="amplafi.factory.appServicesFactory">
+        <invoke-factory>
             <construct class="org.amplafi.tapestry4.mixins.HintMixinWorker">
                 <set-object property="scriptSource" value="infrastructure:scriptSource"/>
             </construct>
