@@ -1,0 +1,14 @@
+<module id="amplafi.tapestry4.mixins" version="0.1.0">
+
+    <contribution configuration-id="tapestry.enhance.EnhancementWorkers">
+        <command id="inject-hints" object="service:amplafi.tapestry4.mixins.HintEnhancementWorker"/>
+    </contribution>    
+
+    <service-point id="HintEnhancementWorker" interface="org.apache.tapestry.enhance.EnhancementWorker">
+        <invoke-factory service-id="amplafi.factory.appServicesFactory">
+            <construct class="org.amplafi.tapestry4.mixins.HintMixinWorker">
+                <set-object property="scriptSource" value="infrastructure:scriptSource"/>
+            </construct>
+        </invoke-factory>
+    </service-point>
+</module>

@@ -3,4 +3,5 @@
     <sub-module descriptor="amplafi.tapestry4.stacktraces.xml"/>
     <sub-module descriptor="amplafi.tapestry4.asset.xml"/>
     <sub-module descriptor="amplafi.tapestry4.bindings.xml"/>
+    <sub-module descriptor="amplafi.tapestry4.mixins.xml"/>
 </module>
