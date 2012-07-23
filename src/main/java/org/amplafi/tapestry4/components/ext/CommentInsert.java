@@ -1,6 +1,5 @@
 package org.amplafi.tapestry4.components.ext;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.tapestry.AbstractComponent;
 import org.apache.tapestry.IRequestCycle;
 import org.apache.tapestry.IMarkupWriter;
@@ -35,7 +34,7 @@ public abstract class CommentInsert extends AbstractComponent {
     @Override
     protected void renderComponent(IMarkupWriter writer, IRequestCycle cycle) {
         String value;
-        if (!cycle.isRewinding() && !isHidden() && StringUtils.isNotBlank(value = getValue())) {
+        if (!cycle.isRewinding() && !isHidden() && !isBlank(value = getValue())) {
             value = value.replaceAll("<!--", "-");
             value = value.replaceAll("-->", "-");
             value = value.replaceAll("--+", "-");
@@ -46,5 +45,18 @@ public abstract class CommentInsert extends AbstractComponent {
                 writer.printRaw(value);
             }
         }
+    }
+    // borrowed to avoid dependency
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
     }
 }

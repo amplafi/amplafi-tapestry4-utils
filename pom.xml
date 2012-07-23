@@ -20,6 +20,10 @@
     </distributionManagement>
     <dependencies>
         <dependency>
+            <groupId>hivemind</groupId>
+            <artifactId>hivemind</artifactId>
+        </dependency>    
+        <dependency>
             <groupId>org.apache.tapestry</groupId>
             <artifactId>tapestry-framework</artifactId>
         </dependency>
